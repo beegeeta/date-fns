@@ -15,7 +15,7 @@ import addLeadingZeros from '../../addLeadingZeros/index'
 
 var formatters = {
   // Year
-  y: function(date, token) {
+  y: function(date, token, options) {
     // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_tokens
     // | Year     |     y | yy |   yyy |  yyyy | yyyyy |
     // |----------|-------|----|-------|-------|-------|
@@ -28,6 +28,9 @@ var formatters = {
     var signedYear = date.getUTCFullYear()
     // Returns 1 for 1 BC (which is year 0 in JavaScript)
     var year = signedYear > 0 ? signedYear : 1 - signedYear
+    if (options && options.budhhistYear) {
+      year = year + 543
+    }
     return addLeadingZeros(token === 'yy' ? year % 100 : year, token.length)
   },
 

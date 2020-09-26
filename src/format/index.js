@@ -406,7 +406,8 @@ export default function format(dirtyDate, dirtyFormatStr, dirtyOptions) {
     firstWeekContainsDate: firstWeekContainsDate,
     weekStartsOn: weekStartsOn,
     locale: locale,
-    _originalDate: originalDate
+    _originalDate: originalDate,
+    budhhistYear: options.budhhistYear || false
   }
 
   var result = formatStr

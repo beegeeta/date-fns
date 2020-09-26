@@ -415,7 +415,8 @@ export default function parse(
   var subFnOptions = {
     firstWeekContainsDate: firstWeekContainsDate,
     weekStartsOn: weekStartsOn,
-    locale: locale
+    locale: locale,
+    budhhistYear: options.budhhistYear || false
   }
 
   // If timezone isn't specified, it will be set to the system timezone

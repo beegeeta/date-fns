@@ -115,6 +115,13 @@ describe('format', function() {
         assert(result === '1986 1986th 86 1986 1986 01986')
       })
 
+      it('works as expected, budhist year', function() {
+        var result = format(date, 'y yo yy yyy yyyy yyyyy', {
+          budhhistYear: true
+        })
+        assert(result === '2529 2529th 29 2529 2529 02529')
+      })
+
       it('1 BC formats as 1', function() {
         var date = new Date(0, 0 /* Jan */, 1)
         date.setFullYear(0)

@@ -84,16 +84,19 @@ var formatters = {
   },
 
   // Year
-  y: function(date, token, localize) {
+  y: function(date, token, localize, options) {
     // Ordinal number
     if (token === 'yo') {
       var signedYear = date.getUTCFullYear()
       // Returns 1 for 1 BC (which is year 0 in JavaScript)
       var year = signedYear > 0 ? signedYear : 1 - signedYear
+      if (options && options.budhhistYear) {
+        year = year + 543
+      }
       return localize.ordinalNumber(year, { unit: 'year' })
     }
 
-    return lightFormatters.y(date, token)
+    return lightFormatters.y(date, token, options)
   },
 
   // Local week-numbering year

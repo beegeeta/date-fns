@@ -97,8 +97,18 @@ describe('parse', function() {
       assert.deepEqual(result, new Date(2017, 0 /* Jan */, 1))
     })
 
+    it('numeric budhhist year', function() {
+      var result = parse('2560', 'y', referenceDate, { budhhistYear: true })
+      assert.deepEqual(result, new Date(2017, 0 /* Jan */, 1))
+    })
+
     it('ordinal', function() {
       var result = parse('2017th', 'yo', referenceDate)
+      assert.deepEqual(result, new Date(2017, 0 /* Jan */, 1))
+    })
+
+    it('ordinal budhhist year', function() {
+      var result = parse('2560th', 'yo', referenceDate, { budhhistYear: true })
       assert.deepEqual(result, new Date(2017, 0 /* Jan */, 1))
     })
 
@@ -108,9 +118,45 @@ describe('parse', function() {
         assert.deepEqual(result, new Date(2002, 0 /* Jan */, 1))
       })
 
+      it('works as expected budhhist year 2545', function() {
+        var result = parse('45', 'yy', referenceDate, { budhhistYear: true })
+        assert.deepEqual(result, new Date(2002, 0 /* Jan */, 1))
+      })
+
+      it('works as expected budhhist year 2530', function() {
+        var result = parse('30', 'yy', referenceDate, { budhhistYear: true })
+        assert.deepEqual(result, new Date(1987, 0 /* Jan */, 1))
+      })
+
+      it('works as expected budhhist year 2543', function() {
+        var result = parse('43', 'yy', referenceDate, { budhhistYear: true })
+        assert.deepEqual(result, new Date(2000, 0 /* Jan */, 1))
+      })
+
       it('gets the 100 year range from `referenceDate`', function() {
         var result = parse('02', 'yy', new Date(1860, 6 /* Jul */, 2))
         assert.deepEqual(result, new Date(1902, 0 /* Jan */, 1))
+      })
+
+      it('gets the 100 year range from referenceDate budhhist year 2445 ', function() {
+        var result = parse('45', 'yy', new Date(1860, 6 /* Jul */, 2), {
+          budhhistYear: true
+        })
+        assert.deepEqual(result, new Date(1902, 0 /* Jan */, 1))
+      })
+
+      it('gets the 100 year range from referenceDate budhhist year 2430', function() {
+        var result = parse('30', 'yy', new Date(1860, 6 /* Jul */, 2), {
+          budhhistYear: true
+        })
+        assert.deepEqual(result, new Date(1887, 0 /* Jan */, 1))
+      })
+
+      it('gets the 100 year range from referenceDate budhhist year 2443', function() {
+        var result = parse('43', 'yy', new Date(1860, 6 /* Jul */, 2), {
+          budhhistYear: true
+        })
+        assert.deepEqual(result, new Date(1900, 0 /* Jan */, 1))
       })
     })
 
