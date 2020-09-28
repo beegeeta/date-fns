@@ -407,7 +407,7 @@ export default function format(dirtyDate, dirtyFormatStr, dirtyOptions) {
     weekStartsOn: weekStartsOn,
     locale: locale,
     _originalDate: originalDate,
-    budhhistYear: options.budhhistYear || false
+    buddhistYear: options.buddhistYear || false
   }
 
   var result = formatStr

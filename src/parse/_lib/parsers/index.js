@@ -310,10 +310,10 @@ var parsers = {
     parse: function(string, token, match, _options) {
       var valueCallback = function(year) {
         let isTwoDigitYear = token === 'yy'
-        if (_options.budhhistYear && !isTwoDigitYear) {
+        if (_options.buddhistYear && !isTwoDigitYear) {
           year = year - 543
         }
-        if (_options.budhhistYear && isTwoDigitYear) {
+        if (_options.buddhistYear && isTwoDigitYear) {
           if (year >= 43) {
             year = year - 43
           } else {

@@ -416,7 +416,7 @@ export default function parse(
     firstWeekContainsDate: firstWeekContainsDate,
     weekStartsOn: weekStartsOn,
     locale: locale,
-    budhhistYear: options.budhhistYear || false
+    buddhistYear: options.buddhistYear || false
   }
 
   // If timezone isn't specified, it will be set to the system timezone

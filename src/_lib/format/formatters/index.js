@@ -90,7 +90,7 @@ var formatters = {
       var signedYear = date.getUTCFullYear()
       // Returns 1 for 1 BC (which is year 0 in JavaScript)
       var year = signedYear > 0 ? signedYear : 1 - signedYear
-      if (options && options.budhhistYear) {
+      if (options && options.buddhistYear) {
         year = year + 543
       }
       return localize.ordinalNumber(year, { unit: 'year' })

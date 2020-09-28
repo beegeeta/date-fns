@@ -117,7 +117,7 @@ describe('format', function() {
 
       it('works as expected, budhist year', function() {
         var result = format(date, 'y yo yy yyy yyyy yyyyy', {
-          budhhistYear: true
+          buddhistYear: true
         })
         assert(result === '2529 2529th 29 2529 2529 02529')
       })
